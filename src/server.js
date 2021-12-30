@@ -43,8 +43,8 @@ app.use(express.urlencoded({
 }));
 
 // Create subdomains
-logger.info('[WUP] Creating \'eshop\' subdomain');
-app.use(subdomain('eshop', ROUTERS.WUP));
+logger.info('[WUP] Creating \'geisha-wup.cdn.shop\' subdomain');
+app.use(subdomain('geisha-wup.cdn.shop', ROUTERS.WUP));
 
 // Setup routes
 logger.info('[WUP] Applying imported routes');

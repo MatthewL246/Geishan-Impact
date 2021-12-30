@@ -8,3 +8,6 @@
 
 ## What is it
 Grove is the server which serves the UI to the WiiU eShop and handles the initialization of the download and install title tasks with the `Grove` JavaScript API
+
+## This fork
+This fork is just for testing random stuff. Also it is named Geishan Impact because geisha sounds like genshin.

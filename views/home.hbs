@@ -27,12 +27,23 @@
             text-align: center;
         }
 
+        img {
+            -webkit-animation: bounce 1s linear 0.5s infinite;
+        }
+
         button {
             width: 1200px;
             height: 500px;
-            font-size: 64px;
-            color: white;
+            font-size: 128px;
+            color: orange;
             background-color: purple;
+            -webkit-animation: bounce 1s linear infinite;
+        }
+
+        @-webkit-keyframes bounce {
+            0% { -webkit-transform: scale(0.5); }
+            50% { -webkit-transform: scale(1.2); }
+            100% { -webkit-transform: scale(0.5); }
         }
     </style>
 </body>

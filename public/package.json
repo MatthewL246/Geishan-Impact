@@ -1,0 +1,23 @@
+{
+  "name": "grove",
+  "version": "1.0.0",
+  "description": "WiiU eShop UI server",
+  "main": "./src/server",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint .",
+    "start": "node .",
+    "start:dev": "NODE_ENV=development node ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "eslint": "^8.20.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.1",
+    "express-subdomain": "^1.0.5",
+    "fs-extra": "^8.1.0",
+    "morgan": "^1.9.1"
+  }
+}

@@ -61,27 +61,15 @@ function startBrick() {
         "Patching your unpatched Switch...",
         "Uploading ransomware to your Switch...",
         "Porting SMO the Lost Kingdoms to Wii U...",
+        "Downloading more RAM..."
     ];
-    const text1 = loadingText[Math.floor(Math.random() * loadingText.length)];
-    const text2 = loadingText[Math.floor(Math.random() * loadingText.length)];
-    const text3 = loadingText[Math.floor(Math.random() * loadingText.length)];
-    const text4 = loadingText[Math.floor(Math.random() * loadingText.length)];
-    setTimeout(function () {
-        wiiuDialog.hideLoading();
-        wiiuDialog.showLoading(text1);
-    }, 2000);
-    setTimeout(function () {
-        wiiuDialog.hideLoading();
-        wiiuDialog.showLoading(text2);
-    }, 4000);
-    setTimeout(function () {
-        wiiuDialog.hideLoading();
-        wiiuDialog.showLoading(text3);
-    }, 6000);
-    setTimeout(function () {
-        wiiuDialog.hideLoading();
-        wiiuDialog.showLoading(text4);
-    }, 8000);
+    for (var i = 1; i < 5; i++) {
+        setTimeout(function () {
+            const text = loadingText[Math.floor(Math.random() * loadingText.length)];
+            wiiuDialog.hideLoading();
+            wiiuDialog.showLoading(text);
+        }, i * 2000);
+    }
 
     setTimeout(function () {
         wiiuBrowser.showLoadingIcon(false);
@@ -100,27 +88,32 @@ function prepareBrick() {
 }
 
 function brick() {
-    wiiuBrowser.lockUserOperation(false);
-    wiiuBrowser.showLoadingIcon(false);
-    wiiuBrowser.prohibitLoadingIcon(true);
+    var body = document.getElementsByTagName("body")[0];
+    body.style.visibility = "hidden";
 
     // For some reason, playing a sound crashes the console. Fun!
     setTimeout(function () {
+        wiiuBrowser.lockUserOperation(false);
+        wiiuBrowser.showLoadingIcon(false);
+        wiiuBrowser.prohibitLoadingIcon(true);
         wiiuDialog.alert(
-            "Congrats, your console is now bricked! It's time to reboot...",
-            "Reboot now"
+            "Congrats, your console is now bricked! It's time to reload...",
+            "Reload now"
         );
-        wiiuSound.playSound(1, 1);
+        body.style.visibility = "visible";
+        setTimeout(function () {
+            wiiuSound.playSound(1, 1);
+        }, 200);
     }, 1000);
 }
 
 function unbrick() {
+    wiiuDialog.hideLoading();
     wiiuBrowser.lockHomeButtonMenu(false);
     wiiuBrowser.lockPowerButton(false);
     wiiuBrowser.lockUserOperation(false);
     wiiuBrowser.showLoadingIcon(false);
     wiiuBrowser.prohibitLoadingIcon(false);
-    wiiuDialog.hideLoading();
 }
 
 setInterval(function () {
